@@ -10,6 +10,13 @@ public class Main {
         System.out.println("Vamos a iniciar los dos threads");
         hilo1.start();
         hilo2.start();
+        try {
+            hilo1.join();
+            hilo2.join();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
         System.out.println("Hilos inicializados");
         System.out.println("Programa principal terminado");
 
