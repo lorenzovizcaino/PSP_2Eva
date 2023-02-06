@@ -14,15 +14,9 @@ public class Bienvenida {
 
     }
 
-    public boolean isBandera() {
-        return bandera;
-    }
 
-    public void setBandera(boolean bandera) {
-        this.bandera = bandera;
-    }
 
-    synchronized public void SaludoAlumnos(){
+    public synchronized  void SaludoAlumnos(String nombre){
         while(!bandera){
             try {
                 wait();
@@ -31,12 +25,13 @@ public class Bienvenida {
             }
         }
 
-        System.out.println("Buenos dias profesor");
+        System.out.println(nombre+" Buenos dias profesor");
     }
 
-    synchronized public void LlegadaProfesor(String nombre){
-        System.out.println("Buenos dias, sou el profesor "+nombre+" Vamos a empezar la clase");
+    public synchronized  void LlegadaProfesor(String nombre){
+        System.out.println("Buenos dias, soy el profesor "+nombre+" Vamos a empezar la clase");
         bandera=true;
+        notifyAll();
 
     }
 

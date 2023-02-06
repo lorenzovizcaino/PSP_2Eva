@@ -21,8 +21,13 @@ public class Profesor extends Thread{
 
     @Override
     public void run() {
-        bienvenida.ComienzoClase();
-        bienvenida.setBandera(true);
+
+        try {
+            Thread.sleep(1000);
+            bienvenida.LlegadaProfesor(quien);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 }

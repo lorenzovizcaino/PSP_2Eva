@@ -8,11 +8,19 @@ Los alumnos y el profesor compartirán un objeto de la clase Bienvenida, con dos
  */
 public class Main {
     public static void main(String[] args) {
+        String[] alumnos={"Maria", "Juan", "Pepe"};
         Bienvenida bienvenida=new Bienvenida();
-        Alumno alumno=new Alumno(bienvenida,"alumno");
-        Profesor profesor=new Profesor(bienvenida, "profesor");
-        alumno.start();
+        for (int i = 0; i < 3; i++) {
+            Alumno alumno=new Alumno(bienvenida,alumnos[i]);
+            alumno.start();
+
+        }
+
+        Profesor profesor=new Profesor(bienvenida, "Luis");
+
         profesor.start();
+
+        new Alumno(bienvenida,"Josito").start();
 
 
 

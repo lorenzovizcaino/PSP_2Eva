@@ -8,8 +8,22 @@ Los alumnos y el profesor compartirán un objeto de la clase Bienvenida, con dos
  */
 public class Alumno extends Thread{
     Bienvenida bienvenida;
+    String nombre;
 
-    public Alumno(Bienvenida bienvenida) {
+    public Alumno(Bienvenida bienvenida, String nombre) {
+        super(nombre);
         this.bienvenida = bienvenida;
+        this.nombre=nombre;
+    }
+
+    @Override
+    public void run() {
+        System.out.println("El Alumno "+getName()+" llego");
+        try {
+            Thread.sleep(1000);
+            bienvenida.SaludoAlumnos(nombre);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
