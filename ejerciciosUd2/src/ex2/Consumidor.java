@@ -10,13 +10,14 @@ public class Consumidor extends Thread {
 	}
 
 	public void run() {
-		String[] caracteres;
+		char[] caracteres;
 		String texto;
 		do {
-			texto = cola.get();
+			texto = cola.consumir();
 			if (!texto.equals("*")) {
-				caracteres = texto.toUpperCase().split("");
-				for (String car : caracteres) {
+				caracteres = texto.toUpperCase().toCharArray();
+
+				for (char car : caracteres) {
 					System.out.println(car);
 				}
 			}

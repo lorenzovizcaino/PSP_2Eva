@@ -3,7 +3,7 @@ public class Cola {
     private String texto;
     private boolean disponible = false;//inicialmente cola vacia
 
-    public synchronized String get() {
+    public synchronized String consumir() {
     	  while (!disponible) {
     	    try {
     	          wait();
@@ -16,7 +16,7 @@ public class Cola {
     	}
 
 
-    public synchronized void put(String valor) {
+    public synchronized void producir(String valor) {
     	  while (disponible){
     	    try {
     	          wait();

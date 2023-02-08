@@ -19,7 +19,7 @@ public class Productor extends Thread {
 			System.out.println("Introduzca cadena para convertir: (* para salir) ");
 			cad = sc.nextLine();
 			if (!cad.equals("*"))
-				cola.put(cad);
+				cola.producir(cad);
 			try {
 				sleep(100);
 			} catch (InterruptedException e) {
