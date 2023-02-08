@@ -1,17 +1,16 @@
-package productorConsumidorEj1;
+package productorConsumidorEj2;
 /*
-Implementar una aplicacion compuesta por 3 clases:
-Una Cola, que sera el Objeto compartido.
-Un Productor y un Consumidor.
-El productor generara 10 numeros, y los insertara en el objeto Cola,
-tras hacer un sleep.
-El consumidor los leera, y los mostrara por pantalla.
+Usando el modelo productor-consumidor, crea un productor que lea caracteres de
+un fichero de texto cuyo nombre recibira a traves de su constructor.
+El consumidor obtendra los datos que produzca el productor y los mostrara
+por pantalla.
+Muestra al final del proceso del productor y del consumidor un mensaje indicando que el proceso ha finalizado
  */
 public class Cola {
-    private int contenido;
-    private boolean lleno = false;
+    private char contenido;
+    private boolean lleno =false;
 
-    public synchronized int vaciar(){
+    public synchronized char vaciar(){
         while(!lleno){
             try {
                 wait();
@@ -25,7 +24,7 @@ public class Cola {
         return contenido;
     }
 
-    public synchronized void llenar (int numero){
+    public synchronized void llenar (char numero){
         while(lleno){
             try {
                 wait();
@@ -37,4 +36,6 @@ public class Cola {
         contenido=numero;
         notifyAll();
     }
+
+
 }
