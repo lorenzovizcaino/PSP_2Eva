@@ -13,7 +13,7 @@ public class Consumidor extends Thread{
         char caracter;
         for (int i = 0; i <longitudFrase ; i++) {
             caracter= cola.vaciar();
-            System.out.println("Consumidor toma el calor "+ caracter);
+            System.out.println("Consumidor toma el valor "+ caracter);
             try {
                 sleep(1000);
             } catch (InterruptedException e) {
