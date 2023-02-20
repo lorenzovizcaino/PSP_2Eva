@@ -1,4 +1,4 @@
-package EXAMENv2.ejercicio1;
+package ex1;
 
 class Caja {
 	double importe = 0;
@@ -34,7 +34,7 @@ class Terminal extends Thread {
 			obj.sumarImporte(imp);
 			pagos+=imp;
 		}
-		System.out.println("Terminal: " + this.nombre + " facturó " + pagos);
+		System.out.println("Terminal: " + this.nombre + " facturï¿½ " + pagos);
 	}
 
 }
@@ -57,11 +57,11 @@ public class E02 {
 			t2.join();
 			t3.join();
 		} catch (InterruptedException ex) {
-			System.out.println("Interrupción");
+			System.out.println("Interrupciï¿½n");
 		}
 
 		total = compartido.mostrarImporte();
 
-		System.out.println("En total se facturó " + total + " euros.");
+		System.out.println("En total se facturï¿½ " + total + " euros.");
 	}
 }
